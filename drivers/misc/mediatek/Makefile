@@ -1,5 +1,3 @@
-#$(call all-subdir-src-or-makefile)
-
 include $(srctree)/drivers/misc/mediatek/Makefile.custom
 
 # For MT6795 FPGA bring-up
@@ -147,7 +145,6 @@ obj-$(CONFIG_MTK_CONN_MD)	+= conn_md/
 
 obj-y	+=  ccci_util/
 obj-$(CONFIG_MTK_CCCI_DRIVER)  +=  ccci/
-obj-$(CONFIG_MTK_CCCI_EXT)     +=  dual_ccci/
 obj-$(CONFIG_MTK_ECCCI_DRIVER) +=  eccci/
 obj-$(CONFIG_MTK_EEMCS_DRIVER) +=  eemcs/
 obj-$(CONFIG_MTK_NFC) += nfc/
