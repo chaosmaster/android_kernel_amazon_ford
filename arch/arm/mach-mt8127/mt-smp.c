@@ -30,6 +30,7 @@
 
 #include <linux/version.h>
 
+// when enabled, the kernel won't try to spin up the secondary CPU
 #define KEXEC_NASTY_WORKAROUND_ENABLED 1
 
 #if defined(CONFIG_TRUSTONIC_TEE_SUPPORT)
