@@ -30,6 +30,8 @@
 
 #include <linux/version.h>
 
+#define KEXEC_NASTY_WORKAROUND_ENABLED 1
+
 #if defined(CONFIG_TRUSTONIC_TEE_SUPPORT)
 #define SLAVE1_MAGIC_REG (0xF0002000 + 0x38)
 #define SLAVE2_MAGIC_REG (0xF0002000 + 0x3C)
@@ -163,7 +165,7 @@ static void __cpuinit mt_wakeup_cpu(int cpu)
 #endif
     HOTPLUG_INFO("SLAVE%d_MAGIC_NUM:%x\n", cpu, secure_magic_num[cpu-1]);
 #ifdef CONFIG_HOTPLUG_WITH_POWER_CTRL
-    if (is_secondary_cpu_first_boot)
+    if (is_secondary_cpu_first_boot && !KEXEC_NASTY_WORKAROUND_ENABLED)
     {
     	printk("mt_wakeup_cpu: first boot!(%d)\n", cpu);
         --is_secondary_cpu_first_boot;
